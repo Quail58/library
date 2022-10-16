@@ -1,1 +1,1 @@
-# library
+This is a libray web app created for The Odin Project using CSS HTML and Javascript
