@@ -9,6 +9,8 @@ class book {
     }
 }
 
+let TheTwoTowers = new book("read", "Tolkien", "The Two Towers", 154)
+
 function addBookToLibrary(){
 
 }
