@@ -30,12 +30,32 @@
     background-color: #ADE8F4;
     flex-grow: 1;
     display: grid;
+    gap: 25px;
     grid-template-columns: repeat(auto-fit, 300px);
     grid-template-rows: repeat(auto-fit, 400px);
+    padding: 100px;
 }
 
-#book {
+/*
+    book card 
+    css properties
+*/
+#book, #book2, #book3{
     background-color: #023E8A;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+button {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    color: black;
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
 }
