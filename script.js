@@ -16,3 +16,19 @@ let DonQuixote = new book("not read", "Cervantes", "Don Quixote", 1077);
 function addBookToLibrary(book){
     myLibrary.push(book)
 }
+
+// function displayBook(){
+//     let display = ""
+//     for (let x in book) {
+//         display += book[x]
+//     }
+// }
+
+let readStatus = "Read Status: " + TheTwoTowers.readStatus;
+let author = "Author: " + TheTwoTowers.author;
+let title = "Title: " + TheTwoTowers.title;
+let pages = "Pages: " + TheTwoTowers.pages
+
+
+
+document.getElementById("book").innerHTML = readStatus + "<br> <br>" + author + "<br> <br>" + title + "<br> <br>" + pages;
