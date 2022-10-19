@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: SecularOne;
+    src: url(./assets/SecularOne.ttf);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.head {
+    background-color: #03045E;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 40px;
+    font-family: SecularOne, sans-serif;   
+}
+
+.books {
+    background-color: #ADE8F4;
+    flex-grow: 1;
+}
