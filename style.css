@@ -10,20 +10,30 @@
     src: url(./assets/SecularOne.ttf);
 }
 
+body {
+    height: 100vh;
+}
+
 .content {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    flex: 1;
 }
 
 .head {
+    position: sticky;
+    top: 0px;
+    z-index: 2;
     background-color: #03045E;
-    height: 100px;
+    height: 40px;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 40px;
-    font-family: SecularOne, sans-serif;   
+    font-family: SecularOne, sans-serif;
+    box-shadow:  0px 5px 15px black;
 }
 
 .books {
@@ -61,7 +71,7 @@
 
 
 button {
-    position: absolute;
+    position: fixed;
     bottom: 15px;
     right: 15px;
     height: 100px;
