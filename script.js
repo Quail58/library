@@ -21,13 +21,12 @@ function addBookToLibrary(book){
 //adds book to page when ran
 function displayBook(book){
     const newBook = document.createElement('div');
-    const bookId = "'" + book.title.replace(/\s/g, "") + "'";
-    newBook.setAttribute("id", bookId);
+    newBook.setAttribute("class", "book");
     const title = document.createElement("div");
-    title.innerHTML = book.title;
+    title.innerHTML = '"' + book.title + '"';
     newBook.appendChild(title);
     const author = document.createElement("div");
-    author.innerHTML = "Author: " + book.author;
+    author.innerHTML =  book.author;
     newBook.appendChild(author);
     const pages = document.createElement('div');
     pages.innerHTML = "Pages: " + book.pages;
@@ -35,6 +34,8 @@ function displayBook(book){
     const read = document.createElement("button");
     const readString = "changeRead(" + book.title.replace(/\s/g, "") + ")";
     read.setAttribute('onclick', readString)
+    const bookId = "'" + book.title.replace(/\s/g, "") + "'";
+    read.setAttribute("id", bookId)
     if (book.readStatus == "read"){
         read.setAttribute('class', "read")
         read.innerHTML = "Read";
