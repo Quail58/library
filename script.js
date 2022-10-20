@@ -11,7 +11,8 @@ class book {
 
 let TheTwoTowers = new book("read", "Tolkien", "The Two Towers", 154);
 let AmericanGods = new book(" read", "Gaiman", "American Gods", 465);
-let DonQuixote = new book("not read", "Cervantes", "Don Quixote", 1077); 
+let DonQuixote = new book("not read", "Cervantes", "Don Quixote", 1077);
+let dummyBook = new book("not read", "No Author", "No Title", 0);
 
 function addBookToLibrary(book){
     myLibrary.push(book)
