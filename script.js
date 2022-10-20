@@ -26,7 +26,7 @@ function displayBook(book){
     title.innerHTML = book.title;
     newBook.appendChild(title);
     const author = document.createElement("div");
-    author.innerHTML = "Author: " + book.author
+    author.innerHTML = "Author: " + book.author;
     newBook.appendChild(author);
     const pages = document.createElement('div');
     pages.innerHTML = "Pages: " + book.pages;
