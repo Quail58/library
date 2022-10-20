@@ -51,7 +51,7 @@ body {
     book card 
     css properties
 */
-.books > div{
+.book {
     background-color: #023E8A;
     display: grid;
     align-items: center;
@@ -68,6 +68,7 @@ body {
     background-color: green;
     border-radius: 25px;
     width: 5rem;
+    border: 0px;
 }
 
 .notRead {
@@ -77,8 +78,8 @@ body {
     background-color: red;
     border-radius: 25px;
     width: 5rem;
+    border: 0px;
 }
-
 
 .newBook {
     position: fixed;
@@ -89,4 +90,12 @@ body {
     border-radius: 100px;
     border: 0px;
     background-color: #03045E;
+}
+
+.bookForm {
+    position: absolute;
+    display: grid;
+    align-self: center;
+    top: 30%;
+    z-index: 2;
 }
