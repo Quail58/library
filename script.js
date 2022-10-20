@@ -19,25 +19,31 @@ function addBookToLibrary(book){
 
 //adds book to page when ran
 function displayBook(book){
-    let newBook = document.createElement('div');
+    const newBook = document.createElement('div');
     newBook.setAttribute("id", "book");
-    newBook.innerHTML = book.title;
-    newBook.insertAdjacentHTML("beforeEnd", book.author);
-    newBook.insertAdjacentHTML("beforeEnd", book.pages);
+    const title = document.createElement("div");
+    title.innerHTML = book.title;
+    newBook.appendChild(title);
+    const author = document.createElement("div");
+    author.innerHTML = "Author: " + book.author
+    newBook.appendChild(author);
+    const pages = document.createElement('div');
+    pages.innerHTML = "Pages: " + book.pages;
+    newBook.appendChild(pages);
+    const read = document.createElement("div");
+    read.setAttribute('class', "read")
+    read.innerHTML = "Read";
+    newBook.appendChild(read);
     let containerDiv = document.querySelector('.books')
     containerDiv.appendChild(newBook);
 }
 
-let readStatus = "Read Status: " + TheTwoTowers.readStatus;
-let author = "Author: " + TheTwoTowers.author;
-let title = "Title: " + TheTwoTowers.title;
-let pages = "Pages: " + TheTwoTowers.pages
-
-let readBox = document.createElement("input");
-readBox.setAttribute("type", "checkbox")
-
-document.getElementById("book").innerHTML = readStatus + "<br> <br>" + author + "<br> <br>" + title + "<br> <br>" + pages;
-document.getElementById("book").appendChild(readBox);
-document.getElementById("book2").innerHTML = readStatus + "<br> <br>" + author + "<br> <br>" + title + "<br> <br>" + pages;
-
 let myLibrary = [TheTwoTowers, AmericanGods, DonQuixote];
+
+function loadBooks(array) {
+    for (i = 0; i < array.length; i++){
+        displayBook(array[i]);
+    }
+}
+
+window.onload = loadBooks(myLibrary);
