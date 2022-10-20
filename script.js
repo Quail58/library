@@ -10,7 +10,7 @@ class book {
 }
 
 let TheTwoTowers = new book("read", "Tolkien", "The Two Towers", 154);
-let AmericanGods = new book(" read", "Gaiman", "American Gods", 465);
+let AmericanGods = new book("read", "Gaiman", "American Gods", 465);
 let DonQuixote = new book("not read", "Cervantes", "Don Quixote", 1077);
 let dummyBook = new book("not read", "No Author", "No Title", 0);
 
@@ -21,7 +21,8 @@ function addBookToLibrary(book){
 //adds book to page when ran
 function displayBook(book){
     const newBook = document.createElement('div');
-    newBook.setAttribute("id", "book");
+    const bookId = "'" + book.title.replace(/\s/g, "") + "'";
+    newBook.setAttribute("id", bookId);
     const title = document.createElement("div");
     title.innerHTML = book.title;
     newBook.appendChild(title);
@@ -31,10 +32,18 @@ function displayBook(book){
     const pages = document.createElement('div');
     pages.innerHTML = "Pages: " + book.pages;
     newBook.appendChild(pages);
-    const read = document.createElement("div");
-    read.setAttribute('class', "read")
-    read.innerHTML = "Read";
-    newBook.appendChild(read);
+    const read = document.createElement("button");
+    const readString = "changeRead(" + book.title.replace(/\s/g, "") + ")";
+    read.setAttribute('onclick', readString)
+    if (book.readStatus == "read"){
+        read.setAttribute('class', "read")
+        read.innerHTML = "Read";
+        newBook.appendChild(read);
+    } else {
+        read.setAttribute('class', "notRead")
+        read.innerHTML = "Not Read";
+        newBook.appendChild(read);
+    }
     let containerDiv = document.querySelector('.books')
     containerDiv.appendChild(newBook);
 }
@@ -48,3 +57,20 @@ function loadBooks(array) {
 }
 
 window.onload = loadBooks(myLibrary);
+
+
+
+function changeRead(book){
+    const bookId = "'" + book.title.replace(/\s/g, "") + "'";
+    const readBtn = document.getElementById(bookId);
+    if (book.readStatus == "read") {
+        book.readStatus = "not read";
+        readBtn.style.backgroundColor = "red";
+        readBtn.innerHTML = "Not Read"
+    } else {
+        book.readStatus = "read";
+        readBtn.style.backgroundColor = "green";
+        readBtn.innerHTML = "Read";
+    }
+}
+

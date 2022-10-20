@@ -40,8 +40,9 @@ body {
     background-color: #ADE8F4;
     flex-grow: 1;
     display: grid;
+    justify-content: center;
     gap: 25px;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 300px));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 400px));
     grid-template-rows: repeat(auto-fill, minmax(100px, 300px));
     padding: 100px;
 }
@@ -50,7 +51,7 @@ body {
     book card 
     css properties
 */
-#book{
+.books > div{
     background-color: #023E8A;
     display: grid;
     align-items: center;
@@ -69,8 +70,17 @@ body {
     width: 5rem;
 }
 
+.notRead {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    border-radius: 25px;
+    width: 5rem;
+}
 
-button {
+
+.newBook {
     position: fixed;
     bottom: 15px;
     right: 15px;
