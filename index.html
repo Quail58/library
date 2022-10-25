@@ -13,23 +13,29 @@
         <div class="head">VIRTUAL LIBRARY</div>
         <form class="bookForm">
             <p>Add New Book</p>
-            <label for="newBookTitle">Book Title:</label>
-            <input id="newBookTitle" type="text">
-            <label for="authorName">Author Name:</label>
-            <input type="text"  id="authorName">
-            <label for="pageNumber">Page Number:</label>
-            <input type="text"  id="pageNumber">
+            <div>
+                <label for="newBookTitle">Book Title:</label>
+                <input id="newBookTitle" type="text">
+            </div>
+            <div>
+                <label for="authorName">Author Name:</label>
+                <input type="text"  id="authorName">
+            </div>
+            <div>
+                <label for="pageNumber">Page Number:</label>
+                <input type="text"  id="pageNumber">
+            </div>
             <input type="submit" value="Add">
         </form>
         <div class="books">
             <div class="book">
-                <div>Breakfast of Champions</div>
-                <div>Author: Vonnegut</div>
+                <div>"Breakfast of Champions"</div>
+                <div>Vonnegut</div>
                 <div>Pages: 320</div>
                 <button class="read">Read</button>
             </div>       
         </div>
-        <button class="newBook" onclick="displayBook(dummyBook)">Make new book</button>
+        <button class="newBook" onclick="displayBook(dummyBook)">Add Book</button>
     </div>
 </body>
 </html>
