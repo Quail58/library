@@ -33,7 +33,7 @@ body {
     align-items: center;
     font-size: 40px;
     font-family: SecularOne, sans-serif;
-    box-shadow:  0px 5px 15px black;
+    box-shadow:  0px 3px 5px grey;
 }
 
 .books {
@@ -42,8 +42,8 @@ body {
     display: grid;
     justify-content: center;
     gap: 25px;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 400px));
-    grid-template-rows: repeat(auto-fill, minmax(100px, 300px));
+    grid-template-columns: repeat(auto-fill, 350px);
+    grid-template-rows: repeat(auto-fill, 300px);
     padding: 100px;
 }
 
@@ -57,8 +57,8 @@ body {
     align-items: center;
     grid-template-rows: 1fr 3fr 1fr 1fr;
     padding: 45px;
-    border-radius: 50px;
-    font-size: 25px;
+    border-radius: 15px;
+    font-size: 20px;
 }
 
 .read {
@@ -94,8 +94,35 @@ body {
 
 .bookForm {
     position: absolute;
-    display: grid;
     align-self: center;
+    display: grid;
     top: 30%;
     z-index: 2;
+    background-color: #03045E;
+    border-radius: 15px;
+    font-size: 20px;
+    width: 200px;
+    height: 300px;
+    padding: 45px;
+}
+
+.bookForm > p {
+    justify-self: center;
+    font-size: 25px;
+}
+
+.bookForm > input{
+    border-radius: 10px;
+    border: 0px;
+    background-color: #023E8A;
+    font-size: 20px;
+}
+
+input[type=text] {
+    border-radius: 5px;
+    border: 0px;
+}
+
+.bookForm > label {
+    padding-top: 0;
 }
