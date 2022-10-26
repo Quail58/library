@@ -11,31 +11,9 @@
 <body>
     <div class="content">
         <div class="head">VIRTUAL LIBRARY</div>
-        <form class="bookForm">
-            <p>Add New Book</p>
-            <div>
-                <label for="newBookTitle">Book Title:</label>
-                <input id="newBookTitle" type="text">
-            </div>
-            <div>
-                <label for="authorName">Author Name:</label>
-                <input type="text"  id="authorName">
-            </div>
-            <div>
-                <label for="pageNumber">Page Number:</label>
-                <input type="text"  id="pageNumber">
-            </div>
-            <input type="submit" value="Add">
-        </form>
         <div class="books">
-            <div class="book">
-                <div>"Breakfast of Champions"</div>
-                <div>Vonnegut</div>
-                <div>Pages: 320</div>
-                <button class="read">Read</button>
-            </div>       
         </div>
-        <button class="newBook" onclick="displayBook(dummyBook)">Add Book</button>
+        <button class="newBook" onclick="addBookButton()">Add Book</button>
     </div>
 </body>
 </html>
