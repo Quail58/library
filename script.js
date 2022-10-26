@@ -22,8 +22,11 @@ function addBookToLibrary(book){
 //adds book to page when ran
 function displayBook(book){
     const newBook = document.createElement('div');
-    newBook.setAttribute('id', book.position)
     newBook.setAttribute("class", "book");
+    const removeButton = document.createElement('button');
+    removeButton.setAttribute('class', 'remove')
+    removeButton.innerHTML = "x";
+    newBook.appendChild(removeButton);
     const title = document.createElement("div");
     title.innerHTML = '"' + book.title + '"';
     newBook.appendChild(title);
@@ -52,7 +55,6 @@ function displayBook(book){
 }
 
 let myLibrary = [TheTwoTowers, AmericanGods, DonQuixote, BreakfastofChampions];
-let myLibraryReal = {TheTwoTowers, AmericanGods, DonQuixote, BreakfastofChampions};
 
 function loadBooks(array) {
     for (i = 0; i < array.length; i++){
@@ -84,7 +86,7 @@ function changeRead(bookPosition){
 function addBookButton(){
     const bookForm = document.createElement('form');
     bookForm.setAttribute('class', 'bookForm');
-    // creates heading for form
+    // creates heading for form    
     const addBook = document.createElement('p');
     addBook.innerHTML = "Add Book";
     bookForm.appendChild(addBook);
@@ -145,3 +147,8 @@ function addBookButton(){
 }
 
 
+// a function to delete the book from the page
+function removeBook(){
+    const element = document.getElementById('The Two Towers');
+    element.remove();
+}
