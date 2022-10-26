@@ -93,7 +93,7 @@ body {
 }
 
 .bookForm {
-    position: absolute;
+    position: fixed;
     align-self: center;
     display: grid;
     top: 30%;
@@ -121,6 +121,7 @@ body {
 input[type=text] {
     border-radius: 5px;
     border: 0px;
+    color: black;
 }
 
 .bookForm > label {
