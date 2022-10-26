@@ -1,19 +1,19 @@
 
 
 class book {
-    constructor(read, author, title, pages) {
+    constructor(read, author, title, pages, position) {
         this.readStatus = read;
         this.author = author;
         this.title = title;
         this.pages = pages;
+        this.position = position;
     }
 }
 
-let TheTwoTowers = new book("read", "Tolkien", "The Two Towers", 154);
-let AmericanGods = new book("read", "Gaiman", "American Gods", 465);
-let DonQuixote = new book("not read", "Cervantes", "Don Quixote", 1077);
-let BreakfastofChampions = new book("read", "Vonnegut", "Breakfast of Champions", 320);
-let dummybook = new book('read', '2', 'dummy book', '4')
+let TheTwoTowers = new book("read", "Tolkien", "The Two Towers", 154, 0);
+let AmericanGods = new book("read", "Gaiman", "American Gods", 465, 1);
+let DonQuixote = new book("not read", "Cervantes", "Don Quixote", 1077, 2);
+let BreakfastofChampions = new book("read", "Vonnegut", "Breakfast of Champions", 320, 3);
 
 function addBookToLibrary(book){
     myLibrary.push(book)
@@ -22,6 +22,7 @@ function addBookToLibrary(book){
 //adds book to page when ran
 function displayBook(book){
     const newBook = document.createElement('div');
+    newBook.setAttribute('id', book.position)
     newBook.setAttribute("class", "book");
     const title = document.createElement("div");
     title.innerHTML = '"' + book.title + '"';
@@ -32,10 +33,10 @@ function displayBook(book){
     const pages = document.createElement('div');
     pages.innerHTML = "Pages: " + book.pages;
     newBook.appendChild(pages);
-    const read = document.createElement("button");
-    const readString = "changeRead(" + book.title.replace(/\s/g, "") + ")";
+    let read = document.createElement("button");
+    let readString = "changeRead(" + book.position + ")";
     read.setAttribute('onclick', readString)
-    const bookId = "'" + book.title.replace(/\s/g, "") + "'";
+    const bookId = book.position;
     read.setAttribute("id", bookId)
     if (book.readStatus == "read"){
         read.setAttribute('class', "read")
@@ -51,6 +52,7 @@ function displayBook(book){
 }
 
 let myLibrary = [TheTwoTowers, AmericanGods, DonQuixote, BreakfastofChampions];
+let myLibraryReal = {TheTwoTowers, AmericanGods, DonQuixote, BreakfastofChampions};
 
 function loadBooks(array) {
     for (i = 0; i < array.length; i++){
@@ -64,19 +66,18 @@ window.onload = loadBooks(myLibrary);
 
 
 
-function changeRead(book){
-    const bookId = "'" + book.title.replace(/\s/g, "") + "'";
+function changeRead(bookPosition){
+    const bookId = bookPosition;
     const readBtn = document.getElementById(bookId);
-    if (book.readStatus == "read") {
-        book.readStatus = "not read";
+    if (myLibrary[bookPosition].readStatus == "read") {
+        myLibrary[bookPosition].readStatus = "not read";
         readBtn.style.backgroundColor = "red";
         readBtn.innerHTML = "Not Read"
     } else {
-        book.readStatus = "read";
+        myLibrary[bookPosition].readStatus = "read";
         readBtn.style.backgroundColor = "green";
         readBtn.innerHTML = "Read";
-    }
-    
+    }    
 }
 
 //pulls up form to create new book
@@ -128,22 +129,19 @@ function addBookButton(){
     bookForm.appendChild(bookSubmit);
     // submits new book to the array and displays it
     bookSubmit.onclick=function(){
-        const bookTitle = document.getElementById('newBookTitle').value;
-        const bookAuthor = document.getElementById('newBookAuthor').value;
-        const bookPages = document.getElementById('newBookPages').value;
-        const newBook = 0;
-        globalThis.newBook = new book("not read", bookAuthor, bookTitle, bookPages); 
-        myLibrary.push(newBook);
-        displayBook(newBook);
+        bookTitle = document.getElementById('newBookTitle').value;
+        bookAuthor = document.getElementById('newBookAuthor').value;
+        bookPages = document.getElementById('newBookPages').value;
+        bookPosition = myLibrary.length;
+        bookTitle = new book("read", bookAuthor, bookTitle, bookPages, bookPosition);
+        displayBook(bookTitle);
+        myLibrary.push(bookTitle);
+        console.log(bookTitle);
         bookForm.remove();
     };
-
-    //bookTitle = new book("not read", bookAuthor, bookTitle, bookPages);
-
-
-
     // adds form to page
     const addForm = document.querySelector('.content');
     addForm.appendChild(bookForm);
 }
+
 
