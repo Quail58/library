@@ -24,7 +24,7 @@ function displayBook(book){
     const newBook = document.createElement('div');
     newBook.setAttribute("class", "book");
     const removeButton = document.createElement('button');
-    removeButton.setAttribute('class', 'remove')
+    removeButton.setAttribute('class', 'remove');
     removeButton.innerHTML = "x";
     newBook.appendChild(removeButton);
     const title = document.createElement("div");
@@ -37,10 +37,6 @@ function displayBook(book){
     pages.innerHTML = "Pages: " + book.pages;
     newBook.appendChild(pages);
     let read = document.createElement("button");
-    let readString = "changeRead(" + book.position + ")";
-    read.setAttribute('onclick', readString)
-    const bookId = book.position;
-    read.setAttribute("id", bookId)
     if (book.readStatus == "read"){
         read.setAttribute('class', "read")
         read.innerHTML = "Read";
@@ -49,6 +45,30 @@ function displayBook(book){
         read.setAttribute('class', "notRead")
         read.innerHTML = "Not Read";
         newBook.appendChild(read);
+    }
+    read.onclick=function(){
+            if (book.readStatus == "read") {
+            book.readStatus = "not read";
+            read.style.backgroundColor = "red";
+            read.innerHTML = "Not Read"
+        } else {
+            book.readStatus = "read";
+            read.style.backgroundColor = "green";
+            read.innerHTML = "Read";
+        } 
+    }
+    removeButton.onclick=function(){
+        console.log(myLibrary);
+        newBook.remove();
+        bookRemove = book.position;        
+        myLibrary.splice(book.position, 1);        
+        for (i = 0; i < myLibrary.length; i++){
+            myLibrary[i].position = i;
+            let readString = "changeRead(" + i + ")";
+            read.setAttribute('onclick', readString);
+            read.setAttribute("id", i)
+        }
+        console.log(myLibrary);
     }
     let containerDiv = document.querySelector('.books')
     containerDiv.appendChild(newBook);
@@ -66,21 +86,6 @@ function loadBooks(array) {
 // loads the array of books on website loading
 window.onload = loadBooks(myLibrary);
 
-
-
-function changeRead(bookPosition){
-    const bookId = bookPosition;
-    const readBtn = document.getElementById(bookId);
-    if (myLibrary[bookPosition].readStatus == "read") {
-        myLibrary[bookPosition].readStatus = "not read";
-        readBtn.style.backgroundColor = "red";
-        readBtn.innerHTML = "Not Read"
-    } else {
-        myLibrary[bookPosition].readStatus = "read";
-        readBtn.style.backgroundColor = "green";
-        readBtn.innerHTML = "Read";
-    }    
-}
 
 //pulls up form to create new book
 function addBookButton(){
@@ -144,11 +149,4 @@ function addBookButton(){
     // adds form to page
     const addForm = document.querySelector('.content');
     addForm.appendChild(bookForm);
-}
-
-
-// a function to delete the book from the page
-function removeBook(){
-    const element = document.getElementById('The Two Towers');
-    element.remove();
 }
